@@ -13,6 +13,7 @@
 		40C560A82B1ED7C0009E887D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C560A72B1ED7C0009E887D /* Preview Assets.xcassets */; };
 		40C560CF2B241098009E887D /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C560CE2B241098009E887D /* Order.swift */; };
 		40C560D12B2414F3009E887D /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C560D02B2414F3009E887D /* AddressView.swift */; };
+		40C560D52B255424009E887D /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C560D42B255424009E887D /* CheckoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		40C560A72B1ED7C0009E887D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		40C560CE2B241098009E887D /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		40C560D02B2414F3009E887D /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		40C560D42B255424009E887D /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				40C560A02B1ED7BF009E887D /* CupcakeCornerApp.swift */,
 				40C560A22B1ED7BF009E887D /* ContentView.swift */,
 				40C560D02B2414F3009E887D /* AddressView.swift */,
+				40C560D42B255424009E887D /* CheckoutView.swift */,
 				40C560CE2B241098009E887D /* Order.swift */,
 				40C560A42B1ED7C0009E887D /* Assets.xcassets */,
 				40C560A62B1ED7C0009E887D /* Preview Content */,
@@ -145,6 +148,7 @@
 			files = (
 				40C560CF2B241098009E887D /* Order.swift in Sources */,
 				40C560D12B2414F3009E887D /* AddressView.swift in Sources */,
+				40C560D52B255424009E887D /* CheckoutView.swift in Sources */,
 				40C560A32B1ED7BF009E887D /* ContentView.swift in Sources */,
 				40C560A12B1ED7BF009E887D /* CupcakeCornerApp.swift in Sources */,
 			);

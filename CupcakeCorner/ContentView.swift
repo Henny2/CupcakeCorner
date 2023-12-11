@@ -30,12 +30,22 @@ struct ContentView: View {
                 }
                 Section {
                     NavigationLink("Delivery Details") {
-                        AddressView(order: order)
+                        AddressView(order: order).onAppear{
+                            let decoder = JSONDecoder()
+                            if let savedUserInfo = UserDefaults.standard.data(forKey: "UserData") {
+                                if let decodedInfo = try? decoder.decode(Address.self, from: savedUserInfo)
+                                {
+                                    print("get user data")
+                                    // have to set this to the user's address
+                                    return
+                                }
+                            }
+                        }
                     }
                 }
             }
-            .navigationTitle("CupCakeCorner")
         }
+        .navigationTitle("CupCakeCorner")
     }
 }
 

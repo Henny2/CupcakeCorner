@@ -5,8 +5,27 @@
 //  Created by Henrieke Baunack on 12/8/23.
 //
 
+// why we cannot store the user address in @AppStorage
+// Important: @AppStorage writes your data to UserDefaults, which is not secure storage.
+// As a result, you should not save any personal data using @AppStorage, because it’s relatively easy to extract.
+
 import Foundation
 import Observation
+
+
+struct Address: Codable {
+//    enum CodingKeys: String, CodingKey {
+//        case _name = "name"
+//        case _zip = "zip"
+//        case _city = "city"
+//        case _streetAddress = "streetAddress"
+//        
+//    }
+    var name = ""
+    var streetAddress = ""
+    var city = ""
+    var zip = ""
+}
 
 @Observable
 class Order: Codable {
@@ -17,10 +36,10 @@ class Order: Codable {
         case _specialRequestEnabled = "specialRequestEnabled"
         case _addSprinkles = "addSprinkles"
         case _extraFrosting = "extraFrosting"
-        case _name = "name"
-        case _zip = "zip"
-        case _city = "city"
-        case _streetAddress = "streetAddress"
+//        case _name = "name"
+//        case _zip = "zip"
+//        case _city = "city"
+//        case _streetAddress = "streetAddress"
         
     }
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
@@ -36,13 +55,18 @@ class Order: Codable {
     var extraFrosting = false
     var addSprinkles = false 
     
-    var name = ""
-    var streetAddress = ""
-    var city = ""
-    var zip = ""
+//    var name = ""
+//    var streetAddress = ""
+//    var city = ""
+//    var zip = ""
+    var address = Address()
     
     var hasValidAddress: Bool {
-        if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+        address.name = address.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        address.streetAddress = address.streetAddress.trimmingCharacters(in: .whitespacesAndNewlines)
+        address.zip = address.zip.trimmingCharacters(in: .whitespacesAndNewlines)
+        address.city = address.city.trimmingCharacters(in: .whitespacesAndNewlines)
+        if address.name.isEmpty || address.streetAddress.isEmpty || address.city.isEmpty || address.zip.isEmpty {
             return false
         }
         return true

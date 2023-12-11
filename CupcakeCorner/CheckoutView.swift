@@ -12,6 +12,7 @@ struct CheckoutView: View {
     
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
+    @State private var confirmationHeader = ""
     
     var body: some View {
         ScrollView{
@@ -39,7 +40,7 @@ struct CheckoutView: View {
         .navigationTitle("Check out")
         .navigationBarTitleDisplayMode(.inline)
         .scrollBounceBehavior(.basedOnSize)
-        .alert("Thank you", isPresented: $showingConfirmation){
+        .alert(confirmationHeader, isPresented: $showingConfirmation){
             Button("OK") {}
         }
         message: {
@@ -64,11 +65,15 @@ struct CheckoutView: View {
             print(data)
             
             let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
+            confirmationHeader = "Thank you!"
             confirmationMessage = "Your order for \(decodedOrder.quantity) \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
             showingConfirmation = true
             // handle our result
         } catch {
             print("Check out failed: \(error.localizedDescription)")
+            confirmationHeader = "There was a problem!"
+            confirmationMessage = "Your order could not be placed. Please try again."
+            showingConfirmation = true
         }
     }
 }

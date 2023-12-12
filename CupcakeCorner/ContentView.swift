@@ -36,6 +36,8 @@ struct ContentView: View {
                                 if let decodedInfo = try? decoder.decode(Address.self, from: savedUserInfo)
                                 {
                                     print("get user data")
+                                    print(decodedInfo)
+                                    order.address = decodedInfo
                                     // have to set this to the user's address
                                     return
                                 }

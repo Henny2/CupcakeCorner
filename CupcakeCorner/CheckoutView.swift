@@ -25,6 +25,7 @@ struct CheckoutView: View {
                     ProgressView()
                 }
                 .frame(height: 233)
+                .accessibilityHidden(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/) // hiding the picture or loading wheel from the voice over reader
                 
                 Text("Your total cost is \(order.cost, format: .currency(code: "USD"))")
                     .font(.title)
